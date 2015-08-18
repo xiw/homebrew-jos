@@ -25,8 +25,6 @@ class I386JosElfGcc < Formula
       "--target=i386-jos-elf"
     ]
 
-    ENV.prepend 'PATH', bin, ':'
-
     mkdir "build" do
       system "../configure", *args
       system "make", "all-gcc"
