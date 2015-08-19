@@ -10,13 +10,11 @@ class I386JosElfGcc < Formula
   depends_on "libmpc"
   depends_on "mpfr"
   depends_on "i386-jos-elf-binutils"
-  depends_on "gcc" => :build
 
   def install
     languages = %w[c]
 
     binutils = Formula.factory "i386-jos-elf-binutils"
-    gcc = Formula.factory "gcc"
 
     args = [
       "--prefix=#{prefix}",
@@ -32,11 +30,6 @@ class I386JosElfGcc < Formula
       "--without-headers",
       "--target=i386-jos-elf"
     ]
-
-    ENV["CPP"] = "#{gcc.bin}/cpp-5"
-    ENV["CC"]  = "#{gcc.bin}/gcc-5"
-    ENV["CXX"] = "#{gcc.bin}/g++-5"
-    ENV["LD"]  = "#{gcc.bin}/gcc-5"
 
     mkdir "build" do
       system "../configure", *args
