@@ -9,7 +9,6 @@ class I386JosElfGdb < Formula
     args = [
       "--prefix=#{prefix}",
       "--disable-werror",
-      "--program-prefix=i386-jos-elf-",
       "--target=i386-jos-elf",
     ]
 
