@@ -6,10 +6,11 @@ class I386JosElfGdb < Formula
   sha256 "cd9c543a411a05b2b647dd38936034b68c2b5d6f10e0d51dc168c166c973ba40"
 
   def install
-    args = [
-      "--prefix=#{prefix}",
-      "--disable-werror",
-      "--target=i386-jos-elf",
+    args = %W[
+      --prefix=#{prefix}
+      --target=i386-jos-elf
+      --disable-werror
+      --with-gdb-datadir=#{pkgshare}
     ]
 
     system "./configure", *args
